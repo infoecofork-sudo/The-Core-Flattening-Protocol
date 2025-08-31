@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatten Your Core - Lose Belly Fat with Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #27ae60; /* Verde principale */
+            --secondary: #2c3e50; /* Testo scuro */
+            --light: #f8f9fa; /* Sfondo chiaro */
+            --dark: #000000; /* Footer nero */
+            --background: #ffffff; /* Sfondo generale */
+            --text: #333333; /* Testo principale */
+            --border: #eaeaea; /* Bordi */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+        
+        /* Animazione di entrata per gli elementi */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animazione per le FAQ */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover {
+            background: #219653;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(39, 174, 96, 0.4);
+        }
+        
+        .btn:hover:after {
+            left: 100%;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            color: var(--secondary);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('hero.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+            position: relative;
+            text-align: left;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .price-tag {
+            background: var(--primary);
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: var(--background);
+            padding: 100px 0;
+        }
+        
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .book-cover {
+            flex: 1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .book-cover:hover img {
+            transform: scale(1.03);
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            list-style-type: none;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Author Section */
+        .author-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+        
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .author-logo {
+            flex: 0 0 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .author-logo img {
+            width: 100%;
+            display: block;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--background);
+            padding: 100px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--primary);
+        }
+        
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-role {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--light);
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f1f8f3;
+        }
+        
+        .faq-answer {
+            color: #666;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 15px;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: #e8f5ee;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            
+            .book-cover {
+                margin-bottom: 40px;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-logo {
+                margin-bottom: 30px;
+                flex: 0 0 150px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+                min-height: 80vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-info h2 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .price-tag {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            
+            .author-card {
+                padding: 25px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Goodbye Belly: Get a Flat, Toned Stomach in 12 Weeks.</h1>
+                <p>Discover the scientific method that reduces waist size without extreme diets.
+A step-by-step program, based on over 50 scientific studies, to directly attack visceral fat and transform your body.</p>
+                <div class="price-tag">LAUNCH PRICE: $39 (soon $59.99)</div>
+                <a href="#" class="btn" id="buy-now-btn">TAKE IT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="flex-container">
+                <div class="book-cover">
+                    <img src="copertina.png" alt="Copertina Flatten Your Core">
+                </div>
+                <div class="content-text">
+                    <h2>What you'll find inside</h2>
+                    <p>Do you want to finally eliminate abdominal fat and achieve a flatter, toned, and lasting stomach?
+This ebook guides you step by step with evidence-based strategies designed to work in real life—no crash diets or miraculous promises.
+
+What is the scientific basis for this book?
+The protocols and recommendations contained herein are based on peer-reviewed studies in the fields of nutrition, exercise, and metabolic physiology — including recognized publications from leading research centers and universities (e.g., studies published in academic journals, including research recognized by institutions like Harvard and Stanford). Full citations are available in the References section for further exploration of each claim with original sources.
+
+Here are some things you will find inside:</p>
+                    
+                    <ul class="benefits-list">
+                        <li>A 12-week, day-by-day program with simple, scalable progressions.</li>
+                        <li>Workouts designed to preserve muscle mass and maximize calorie expenditure (resistance + HIIT).</li>
+                        <li>Practical, high-protein, fiber-rich meal plans with meal prep examples.</li>
+                        <li>Strategies to optimize sleep, stress management, and alcohol consumption—factors that are often underestimated in abdominal fat loss.</li>
+                        <li>Anti-plateau checklist, refeed strategies, and practical solutions to unlock results.</li>
+                        <li>Evidence-based supplements section: what can help and what is pure marketing.</li>
+                        <li>Templates for measurements, monitoring, and progress photos: simple tools to evaluate real results.</li>
+                        <li>Scientific FAQs: clear answers on low-carb, intermittent fasting, supplements, and more.</li>
+                    </ul>
+                    
+                    <p>The actual value of this information exceeds $500, but today you can get it for only <strong>$39</strong>.</p>
+                    <a href="#" class="btn" id="buy-now-btn-2">Yes, I want to transform my body!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-card">
+                <div class="author-logo">
+                    <img src="logo.png" alt="EcoFork Research Team">
+                </div>
+                <div class="author-info">
+                    <h2>About The Autor</h2>
+                    <p>Written by the EcoFork Research Team</p>
+                    <p>The EcoFork Research Team is made up of nutrition researchers, certified strength and conditioning coaches, and independent health specialists who together bring over 50 years of experience in the field. </p>
+                    <p>Over the years, we have supported thousands of clients with personalized plans and evidence-based programs: from nutrition optimization to training programming (resistance + HIIT), to sleep and stress management — all topics covered in this ebook.</p>
+                    <p>Our method is simple but rigorous: we evaluate peer-reviewed scientific literature, translate the results into practical and testable protocols, and adapt them to people's real needs — without extremism.</p>
+                    <p>The goal is to offer concrete, sustainable, and repeatable tools to achieve and maintain a healthier life, with measurable results in body composition and overall well-being.</p>
+                    <p>While others sell illusions and miracle solutions, we offer only what science has proven to work. This isn't just another book on weight loss: it's the last book you'll ever need on the subject.</p>
+                    <a href="#" class="btn" id="buy-now-btn-3">Get your copy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Readers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="r2.jpg" alt="Maria Rossi">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Sarah, 38</div>
+                            <div class="testimonial-role">Lost 7 cm in 10 weeks</div>
+                        </div>
+                    </div>
+                    <p>"After two pregnancies, I didn't think I could ever have a flat stomach again. With the training plan and sleep tips, I lost 7 cm in 10 weeks. Incredible."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="r1.jpg" alt="Luca Bianchi">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Ana, 57 (menopause):</div>
+                            <div class="testimonial-role">Lost 5 cm in 2 months</div>
+                        </div>
+                    </div>
+                    <p>"I thought that after menopause, it would all be downhill from there. Instead, I learned how to manage my hormones and lost 5 cm off my waist in 2 months. I feel reborn."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="r3.jpg" alt="Giulia Verdi">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Mike, 51</div>
+                            <div class="testimonial-role">15% reduction in body fat</div>
+                        </div>
+                    </div>
+                    <p>"I've always had an 'office belly'. This program taught me what to eat. My waistline is 9 cm smaller, and I can finally see my stomach when I look in the mirror."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Objections and FAQs</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Will it work for me, even though I've tried everything else? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Absolutely. The program is based on nutrition and metabolism science, not passing fads. It works because it addresses the root causes of abdominal fat accumulation.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do I need a gym or expensive equipment? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">No. The program includes effective bodyweight workouts that you can do at home. If you have weights, even better, but they are not essential to get started.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do I have to give up all my favorite foods? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">No, sustainable fat loss allows for flexibility. The 80/20 approach suggests making nutritious choices 80% of the time while allowing 20% for social situations and treats.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is it safe? Is it suitable for women over 40 / men over 50? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Yes, it is safe and designed for all ages. The recommendations are based on international scientific research. We always recommend, as specified in the book, that you consult your doctor before starting any new program.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How much time does it take each day? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Less than you think. Workouts lasting 20-45 minutes (3-5 times/week) and simple dietary rules that fit into your life. It's designed to be sustainable.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Will this diet leave me feeling hungry and low on energy? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Not at all! The emphasis on protein and fiber keeps you feeling full and satisfied. In fact, most people report increased energy levels.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Will I lose weight on the scale? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">The main goal is body recomposition (losing fat and maintaining muscle). The number on the scale may not change dramatically, but your pants will be much looser. Measure your waist!</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Will I receive a PDF or a physical book? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">You will immediately receive a PDF eBook (60+ pages) that you can read on any device, plus some bonuses. No shipping costs or waiting.</div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#" class="btn" id="buy-now-btn-4">Buy Now for Only $39</a>
+                <p style="margin-top: 15px; font-style: italic;">Special introductory price - Going up to $59.99 soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 EcoFork. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="purchase-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Purchase the e-Book</h2>
+            <p>For greater security, we kindly ask you to enter your details:</p>
+            <form id="purchase-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn">Get your copy</button>
+                <div class="loading" id="loading">
+                    <p>Processing your request...</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('purchase-modal');
+        const buyButtons = document.querySelectorAll('[id^="buy-now-btn"]');
+        const closeModal = document.getElementById('close-modal');
+        const form = document.getElementById('purchase-form');
+        const loading = document.getElementById('loading');
+        
+        buyButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Form submission with email sending
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show loading state
+            loading.style.display = 'block';
+            
+            // Use FormSubmit.co to send the email
+            fetch("https://formsubmit.co/ajax/cobraleo8@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    subject: "New Purchase - Flatten Your Core",
+                    message: `New purchase from: ${name} (${email})`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Redirect to Payhip after successful submission
+                window.location.href = "https://payhip.com/b/VJbuT";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Still redirect even if email fails
+                window.location.href = "https://payhip.com/b/VJbuT";
+            });
+        });
+        
+        // FAQ toggle functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('i');
+                
+                // Toggle active class
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Scroll animation with Intersection Observer
+        const sections = document.querySelectorAll('section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Animate hero content
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.animation = 'fadeInUp 1s ease forwards';
+        });
+    </script>
+</body>
+</html>
