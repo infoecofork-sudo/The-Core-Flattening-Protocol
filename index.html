@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flatten Your Core - Lose Belly Fat with Science</title>
+    <title>The Time-Crunched Father - Burn Belly Fat, Boost Energy, Reclaim Your Health</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #27ae60; /* Verde principale */
-            --secondary: #2c3e50; /* Testo scuro */
+            --primary: #FF9E1B; /* Arancione principale per tutti i pulsanti e accenti */
+            --primary-dark: #E58A15; /* Arancione scuro per hover */
+            --text: #2c3e50; /* Testo scuro */
             --light: #f8f9fa; /* Sfondo chiaro */
-            --dark: #000000; /* Footer nero */
             --background: #ffffff; /* Sfondo generale */
-            --text: #333333; /* Testo principale */
             --border: #eaeaea; /* Bordi */
         }
         
@@ -42,18 +41,6 @@
             }
         }
         
-        /* Animazione per le FAQ */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                max-height: 0;
-            }
-            to {
-                opacity: 1;
-                max-height: 500px;
-            }
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -76,7 +63,7 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 18px 36px;
+            padding: 22px 42px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
@@ -84,9 +71,9 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.25);
+            box-shadow: 0 6px 15px rgba(255, 158, 27, 0.35);
             position: relative;
             overflow: hidden;
         }
@@ -98,14 +85,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: 0.5s;
         }
         
         .btn:hover {
-            background: #219653;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(39, 174, 96, 0.4);
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(255, 158, 27, 0.5);
         }
         
         .btn:hover:after {
@@ -117,15 +104,15 @@
         }
         
         h1, h2, h3 {
-            color: var(--secondary);
+            color: var(--text);
             font-weight: 700;
             line-height: 1.3;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('hero.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('hero1.png') no-repeat center center/cover;
             color: white;
             padding: 120px 0;
             position: relative;
@@ -136,7 +123,7 @@
         }
         
         .hero-content {
-            max-width: 700px;
+            max-width: 800px;
             z-index: 2;
             position: relative;
             text-align: left;
@@ -145,26 +132,74 @@
         
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.2;
             color: white;
         }
         
-        .hero p {
-            font-size: 1.2rem;
+        .hero-subtitle {
+            font-size: 1.8rem;
             margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-features {
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-feature i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .urgency-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .price-text {
+            color: white;
+            margin-top: 25px;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
         
-        .price-tag {
-            background: var(--primary);
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 50px;
+        .price-highlight {
+            font-size: 2.2rem;
             font-weight: bold;
-            margin: 20px 0;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
         }
         
         /* Content Section */
@@ -186,6 +221,8 @@
             overflow: hidden;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.2s;
+            max-width: 450px;
+            margin: 0 auto;
         }
         
         .book-cover img {
@@ -206,7 +243,7 @@
         .content-text h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: var(--secondary);
+            color: var(--text);
         }
         
         .benefits-list {
@@ -322,7 +359,7 @@
         .testimonial-role {
             opacity: 0.7;
             font-size: 0.9rem;
-            color: var(--secondary);
+            color: var(--text);
         }
         
         /* FAQ Section */
@@ -359,7 +396,7 @@
         }
         
         .faq-question:hover {
-            background-color: #f1f8f3;
+            background-color: #fff5e6;
         }
         
         .faq-answer {
@@ -375,7 +412,7 @@
         }
         
         .faq-item.active .faq-question {
-            background-color: #e8f5ee;
+            background-color: #fff5e6;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -388,9 +425,32 @@
             transition: transform 0.3s ease;
         }
         
+        /* Guarantee Section */
+        .guarantee-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .guarantee-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .guarantee-box h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--text);
             color: white;
             padding: 40px 0;
             text-align: center;
@@ -462,7 +522,7 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 158, 27, 0.2);
         }
 
         .loading {
@@ -488,6 +548,10 @@
                 font-size: 2.8rem;
             }
             
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
             .author-card {
                 flex-direction: column;
                 text-align: center;
@@ -507,10 +571,19 @@
             .hero {
                 padding: 80px 0;
                 min-height: 80vh;
+                text-align: center;
+            }
+            
+            .hero-content {
+                text-align: center;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
             
             .hero p {
@@ -530,8 +603,14 @@
             }
             
             .btn {
-                padding: 15px 30px;
-                font-size: 0.9rem;
+                padding: 18px 32px;
+                font-size: 1rem;
+            }
+            
+            .hero-feature {
+                margin-right: 0;
+                width: 100%;
+                justify-content: center;
             }
         }
         
@@ -540,13 +619,12 @@
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
-            .price-tag {
+            .hero p {
                 font-size: 1rem;
-                padding: 10px 20px;
             }
             
             .author-card {
@@ -561,6 +639,20 @@
                 font-size: 1.1rem;
                 padding: 12px;
             }
+            
+            .btn {
+                padding: 16px 28px;
+                font-size: 0.95rem;
+            }
+            
+            .urgency-badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .price-highlight {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -569,11 +661,28 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Goodbye Belly: Get a Flat, Toned Stomach in 12 Weeks.</h1>
-                <p>Discover the scientific method that reduces waist size without extreme diets.
-A step-by-step program, based on over 50 scientific studies, to directly attack visceral fat and transform your body.</p>
-                <div class="price-tag">LAUNCH PRICE: $39 (soon $59.99)</div>
-                <a href="#" class="btn" id="buy-now-btn">TAKE IT</a>
+                <div class="urgency-badge">SPECIAL LAUNCH PRICE - SOON AT $59.99</div>
+                <h1>From Dad Bod to <span style="color: var(--primary);">Rad Dad</span></h1>
+                <div class="hero-subtitle">The 12-Week Plan for Busy Fathers to Burn Belly Fat & Boost Energy</div>
+                <p>Finally, a fitness program designed for real dads with real lives. No gym membership required. Just 3 workouts per week. Proven results.</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>3x45 min workouts/week</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-home"></i>
+                        <span>Home gym friendly</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-utensils"></i>
+                        <span>$50 weekly grocery plan</span>
+                    </div>
+                </div>
+                
+                <a href="https://payhip.com/b/VJbuT" class="btn" id="buy-now-btn">GET INSTANT ACCESS NOW</a>
+                <p class="price-text">ONE-TIME INVESTMENT: <span class="price-highlight">$39</span> <span style="text-decoration: line-through; opacity: 0.7;">$59.99</span></p>
             </div>
         </div>
     </section>
@@ -583,31 +692,26 @@ A step-by-step program, based on over 50 scientific studies, to directly attack 
         <div class="container">
             <div class="flex-container">
                 <div class="book-cover">
-                    <img src="copertina.png" alt="Copertina Flatten Your Core">
+                    <img src="copertina1.png" alt="The Time-Crunched Father Book Cover">
                 </div>
                 <div class="content-text">
-                    <h2>What you'll find inside</h2>
-                    <p>Do you want to finally eliminate abdominal fat and achieve a flatter, toned, and lasting stomach?
-This ebook guides you step by step with evidence-based strategies designed to work in real life—no crash diets or miraculous promises.
-
-What is the scientific basis for this book?
-The protocols and recommendations contained herein are based on peer-reviewed studies in the fields of nutrition, exercise, and metabolic physiology — including recognized publications from leading research centers and universities (e.g., studies published in academic journals, including research recognized by institutions like Harvard and Stanford). Full citations are available in the References section for further exploration of each claim with original sources.
-
-Here are some things you will find inside:</p>
+                    <h2>Finally, a Program That Fits Your Life</h2>
+                    <p>As a busy dad, you don't have time for endless workouts or complicated meal plans. This program was specifically designed for men like you - successful professionals who need efficient, effective strategies that deliver real results.</p>
+                    
+                    <p>Based on over 50 scientific studies and tested with real busy dads, this program delivers what actually works for men over 40 with demanding schedules.</p>
                     
                     <ul class="benefits-list">
-                        <li>A 12-week, day-by-day program with simple, scalable progressions.</li>
-                        <li>Workouts designed to preserve muscle mass and maximize calorie expenditure (resistance + HIIT).</li>
-                        <li>Practical, high-protein, fiber-rich meal plans with meal prep examples.</li>
-                        <li>Strategies to optimize sleep, stress management, and alcohol consumption—factors that are often underestimated in abdominal fat loss.</li>
-                        <li>Anti-plateau checklist, refeed strategies, and practical solutions to unlock results.</li>
-                        <li>Evidence-based supplements section: what can help and what is pure marketing.</li>
-                        <li>Templates for measurements, monitoring, and progress photos: simple tools to evaluate real results.</li>
-                        <li>Scientific FAQs: clear answers on low-carb, intermittent fasting, supplements, and more.</li>
+                        <li><strong>12-week progressive plan</strong> with 3 weekly 45-minute dumbbell workouts</li>
+                        <li><strong>Home gym friendly</strong> - no expensive equipment or membership needed</li>
+                        <li><strong>Simple $50 weekly grocery list</strong> with high-protein, easy-prep meals</li>
+                        <li><strong>Energy optimization strategies</strong> to beat the 3 PM crash</li>
+                        <li><strong>Stress management techniques</strong> that work for busy professionals</li>
+                        <li><strong>Supplement guide</strong> cutting through the hype to what actually works</li>
+                        <li><strong>Travel & client dinner strategies</strong> to stay on track</li>
                     </ul>
                     
-                    <p>The actual value of this information exceeds $500, but today you can get it for only <strong>$39</strong>.</p>
-                    <a href="#" class="btn" id="buy-now-btn-2">Yes, I want to transform my body!</a>
+                    <p>This isn't another fitness program. This is a lifestyle transformation designed specifically for time-crunched fathers.</p>
+                    <a href="https://payhip.com/b/VJbuT" class="btn" id="buy-now-btn-2">YES, I WANT THIS TRANSFORMATION!</a>
                 </div>
             </div>
         </div>
@@ -621,14 +725,11 @@ Here are some things you will find inside:</p>
                     <img src="logo.png" alt="EcoFork Research Team">
                 </div>
                 <div class="author-info">
-                    <h2>About The Autor</h2>
-                    <p>Written by the EcoFork Research Team</p>
-                    <p>The EcoFork Research Team is made up of nutrition researchers, certified strength and conditioning coaches, and independent health specialists who together bring over 50 years of experience in the field. </p>
-                    <p>Over the years, we have supported thousands of clients with personalized plans and evidence-based programs: from nutrition optimization to training programming (resistance + HIIT), to sleep and stress management — all topics covered in this ebook.</p>
-                    <p>Our method is simple but rigorous: we evaluate peer-reviewed scientific literature, translate the results into practical and testable protocols, and adapt them to people's real needs — without extremism.</p>
-                    <p>The goal is to offer concrete, sustainable, and repeatable tools to achieve and maintain a healthier life, with measurable results in body composition and overall well-being.</p>
-                    <p>While others sell illusions and miracle solutions, we offer only what science has proven to work. This isn't just another book on weight loss: it's the last book you'll ever need on the subject.</p>
-                    <a href="#" class="btn" id="buy-now-btn-3">Get your copy</a>
+                    <h2>Designed by Experts Who Understand Your Life</h2>
+                    <p>The EcoFork Research Team includes nutrition researchers, certified strength coaches, and health specialists with over 50 years of combined experience.</p>
+                    <p>We've helped thousands of busy professionals achieve sustainable results. But more importantly, we're fathers ourselves. We understand the challenges of balancing career, family, and health.</p>
+                    <p>This program was born from our own struggles and the proven solutions we've developed for time-crunched dads who want to feel strong, energetic, and confident again.</p>
+                    <a href="https://payhip.com/b/VJbuT" class="btn" id="buy-now-btn-3">GET THE PROGRAM NOW</a>
                 </div>
             </div>
         </div>
@@ -637,45 +738,45 @@ Here are some things you will find inside:</p>
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="text-center">What Readers Say</h2>
+            <h2 class="text-center">Real Dads, Real Results</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
-                            <img src="r2.jpg" alt="Maria Rossi">
+                            <img src="r111.jpg" alt="Mike">
                         </div>
                         <div>
-                            <div class="testimonial-name">Sarah, 38</div>
-                            <div class="testimonial-role">Lost 7 cm in 10 weeks</div>
+                            <div class="testimonial-name">Mike, 48</div>
+                            <div class="testimonial-role">Real Estate Agent</div>
                         </div>
                     </div>
-                    <p>"After two pregnancies, I didn't think I could ever have a flat stomach again. With the training plan and sleep tips, I lost 7 cm in 10 weeks. Incredible."</p>
+                    <p>"After 20 years in real estate, my body was falling apart. This program fit my crazy schedule. I lost 4 inches off my waist in 12 weeks and finally have energy for my kids after work. The home workouts were a game-changer."</p>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
-                            <img src="r1.jpg" alt="Luca Bianchi">
+                            <img src="r222.jpg" alt="James">
                         </div>
                         <div>
-                            <div class="testimonial-name">Ana, 57 (menopause):</div>
-                            <div class="testimonial-role">Lost 5 cm in 2 months</div>
+                            <div class="testimonial-name">James, 52</div>
+                            <div class="testimonial-role">IT Manager</div>
                         </div>
                     </div>
-                    <p>"I thought that after menopause, it would all be downhill from there. Instead, I learned how to manage my hormones and lost 5 cm off my waist in 2 months. I feel reborn."</p>
+                    <p>"I was skeptical about another fitness program, but the 3-day schedule hooked me. No more 6-day gym marathons. The energy strategies eliminated my afternoon crashes, and I'm playing basketball with my son again without getting winded."</p>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
-                            <img src="r3.jpg" alt="Giulia Verdi">
+                            <img src="r3.jpg" alt="Robert">
                         </div>
                         <div>
-                            <div class="testimonial-name">Mike, 51</div>
-                            <div class="testimonial-role">15% reduction in body fat</div>
+                            <div class="testimonial-name">Robert, 45</div>
+                            <div class="testimonial-role">Business Owner</div>
                         </div>
                     </div>
-                    <p>"I've always had an 'office belly'. This program taught me what to eat. My waistline is 9 cm smaller, and I can finally see my stomach when I look in the mirror."</p>
+                    <p>"The $50 grocery list saved me both money and time. The workouts are efficient and effective. For the first time in 10 years, I've stuck with a program long enough to see real results. My wife says she's got her confident husband back."</p>
                 </div>
             </div>
         </div>
@@ -684,52 +785,52 @@ Here are some things you will find inside:</p>
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
-            <h2 class="text-center">Objections and FAQs</h2>
+            <h2 class="text-center">Answers to Common Questions</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">Will it work for me, even though I've tried everything else? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Absolutely. The program is based on nutrition and metabolism science, not passing fads. It works because it addresses the root causes of abdominal fat accumulation.</div>
+                    <div class="faq-question">I'm over 40 and haven't exercised in years. Will this work for me? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Absolutely. The program is specifically designed for men over 40 who are getting back into fitness. The workouts are progressive, starting at a manageable level and building sensibly. We include modifications for all fitness levels.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Do I need a gym or expensive equipment? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">No. The program includes effective bodyweight workouts that you can do at home. If you have weights, even better, but they are not essential to get started.</div>
+                    <div class="faq-question">I work 60+ hours weekly. How can I fit this in? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">This program was created for extremely busy professionals. The workouts are only 45 minutes, 3 times per week. The nutrition plan is designed for minimal prep time. We even include strategies for maintaining progress during travel and busy periods.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Do I have to give up all my favorite foods? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">No, sustainable fat loss allows for flexibility. The 80/20 approach suggests making nutritious choices 80% of the time while allowing 20% for social situations and treats.</div>
+                    <div class="faq-question">What equipment do I need? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Just a set of adjustable dumbbells and a bench. That's it. No gym membership required. The entire program can be done in your home garage or basement.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Is it safe? Is it suitable for women over 40 / men over 50? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yes, it is safe and designed for all ages. The recommendations are based on international scientific research. We always recommend, as specified in the book, that you consult your doctor before starting any new program.</div>
+                    <div class="faq-question">Will I need to eat special foods or spend hours meal prepping? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Not at all. We provide a simple $50 weekly grocery list with regular foods you can find at any supermarket. The meal prep system takes less than 30 minutes per week.</div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">How much time does it take each day? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Less than you think. Workouts lasting 20-45 minutes (3-5 times/week) and simple dietary rules that fit into your life. It's designed to be sustainable.</div>
+                    <div class="faq-question">How quickly will I see results? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Most men notice improved energy within the first week. Visible changes in body composition typically appear within 3-4 weeks. By 12 weeks, most participants lose 3-4 inches from their waistline.</div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Will this diet leave me feeling hungry and low on energy? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Not at all! The emphasis on protein and fiber keeps you feeling full and satisfied. In fact, most people report increased energy levels.</div>
+                    <div class="faq-question">What if I travel frequently for work? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">We include specific travel strategies - hotel room workouts, eating strategies for business dinners, and tips for maintaining momentum on the road.</div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Will I lose weight on the scale? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">The main goal is body recomposition (losing fat and maintaining muscle). The number on the scale may not change dramatically, but your pants will be much looser. Measure your waist!</div>
+                    <div class="faq-question">Is this another extreme diet that will leave me hungry? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Not at all. The nutrition plan emphasizes protein and fiber to keep you full and satisfied. This is about sustainable eating patterns, not deprivation.</div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Will I receive a PDF or a physical book? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">You will immediately receive a PDF eBook (60+ pages) that you can read on any device, plus some bonuses. No shipping costs or waiting.</div>
+                    <div class="faq-question">What format will I receive the program in? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">You'll get immediate access to a downloadable PDF eBook (60+ pages) that you can read on any device, plus printable workout trackers and grocery lists. No shipping costs or waiting.</div>
                 </div>
             </div>
             
             <div class="text-center" style="margin-top: 40px;">
-                <a href="#" class="btn" id="buy-now-btn-4">Buy Now for Only $39</a>
-                <p style="margin-top: 15px; font-style: italic;">Special introductory price - Going up to $59.99 soon.</p>
+                <a href="https://payhip.com/b/VJbuT" class="btn" id="buy-now-btn-4">Get Instant Access Now - $39</a>
+                <p style="margin-top: 15px; font-style: italic;">SOON AT $59.99</p>
             </div>
         </div>
     </section>
@@ -745,8 +846,8 @@ Here are some things you will find inside:</p>
     <div class="modal" id="purchase-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
-            <h2>Purchase the e-Book</h2>
-            <p>For greater security, we kindly ask you to enter your details:</p>
+            <h2>Get Your Copy Now</h2>
+            <p>Enter your details for immediate access to The Time-Crunched Father program:</p>
             <form id="purchase-form">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -756,7 +857,7 @@ Here are some things you will find inside:</p>
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <button type="submit" class="btn">Get your copy</button>
+                <button type="submit" class="btn">Get Instant Access</button>
                 <div class="loading" id="loading">
                     <p>Processing your request...</p>
                 </div>
@@ -808,14 +909,14 @@ Here are some things you will find inside:</p>
                 body: JSON.stringify({
                     name: name,
                     email: email,
-                    subject: "New Purchase - Flatten Your Core",
+                    subject: "New Purchase - The Time-Crunched Father",
                     message: `New purchase from: ${name} (${email})`
                 })
             })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                // Redirect to Payhip after successful submission
+                // Redirect to payment/thank you page after successful submission
                 window.location.href = "https://payhip.com/b/VJbuT";
             })
             .catch(error => {
